@@ -20,6 +20,8 @@ app.use("/api/contact", contactRoutes);
 
 app.get("/api/health", (req, res) => res.json({ ok: true }));
 
+app.set("trust proxy", 1);
+
 const PORT = process.env.PORT || 5000;
 
 mongoose
