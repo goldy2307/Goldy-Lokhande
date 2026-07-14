@@ -1,0 +1,246 @@
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+import Content from "../models/Content.js";
+
+dotenv.config();
+
+const data = {
+  key: "portfolio",
+
+  hero: {
+    name: "Goldy Lokhande",
+    roles: [
+      "Full Stack Developer",
+      "MERN Stack Engineer",
+      "Java / Spring Boot Developer",
+      "PHP Laravel Developer",
+    ],
+    tagline:
+      "Final-year B.Tech CSE engineer who ships production software solo — 4+ live products across MERN, PHP Laravel, Flutter and Java/Spring Boot.",
+    avatar: "", // add a square headshot URL or base64 string from the admin panel
+    resumeUrl: "",
+  },
+
+  about: {
+    bio:
+      "I'm a final-year Computer Science engineer (B.Tech, 2026) from Indore, India, working as a Full Stack Engineer at Switchit Private Limited, where I independently design, build and ship production products end to end — frontend, backend, database and deployment. I work comfortably across the MERN stack, PHP Laravel, Flutter and Java/Spring Boot, and I care about clean schemas, fast queries and code that survives contact with real users. Outside of client work, I've built an ETL pipeline processing 1M+ records at 99.9% integrity, optimized an ERP backend for a 25% throughput gain, and presented a research paper at an international congress.",
+    photo: "", // add a personal photo URL or base64 string from the admin panel
+    location: "Indore, Madhya Pradesh, India",
+    stats: [
+      { label: "Live production products", value: "4+" },
+      { label: "Years to B.Tech CSE", value: "2022–26" },
+      { label: "Hackathon results", value: "2x Runner-up" },
+      { label: "ETL data integrity", value: "99.9%" },
+    ],
+  },
+
+  skills: [
+    {
+      group: "Languages",
+      items: ["Java", "JavaScript (Node.js)", "PHP", "Python", "SQL", "Dart"],
+    },
+    {
+      group: "Full Stack / Frameworks",
+      items: [
+        "MERN Stack",
+        "PHP Laravel",
+        "Flutter",
+        "Spring Boot",
+        "Hibernate / JPA",
+        "REST APIs",
+        "Microservices",
+        "Maven",
+      ],
+    },
+    {
+      group: "Frontend",
+      items: ["React.js", "HTML5", "CSS3", "JavaScript (ES6+)", "Flutter / Dart UI"],
+    },
+    {
+      group: "Databases",
+      items: ["MySQL", "MongoDB", "Oracle SQL", "Schema Design", "Indexing & Query Tuning"],
+    },
+    {
+      group: "Data & ETL",
+      items: ["ETL Pipelines", "Pandas", "NumPy", "Power BI", "Statistical Analysis"],
+    },
+    {
+      group: "Testing & QA",
+      items: ["Selenium WebDriver", "PyTest", "JUnit 5", "Postman / API Testing", "Manual Testing"],
+    },
+    {
+      group: "Cloud & DevOps",
+      items: ["AWS EC2", "Google Cloud Platform", "Git / GitHub", "CI/CD basics", "Docker (basics)"],
+    },
+    {
+      group: "Messaging & Integration",
+      items: ["Apache Kafka", "RESTful Web Services", "Microservices"],
+    },
+  ],
+
+  journey: [
+    {
+      org: "Switch IT Private Limited",
+      role: "Full Stack Engineer",
+      period: "Apr 2026 — Present",
+      location: "Indore",
+      points: [
+        "Independently built and deployed switchitpvtltd.com (corporate site) and switchitecommerce.com (full e-commerce platform) using the MERN stack, scratch to production, as sole developer.",
+        "Refactored Switchit Software CRM (PHP Laravel) — redesigned the database schema, reduced server response time, restructured core backend modules for performance with zero downtime.",
+        "Building the Switchit Ecommerce Flutter mobile app, currently in final production/review stage.",
+        "Delivered Kashly, a MERN-based money-lending fintech app, as a solo freelance build shipped to production.",
+      ],
+      image: "",
+    },
+    {
+      org: "IBM (PBEL Program)",
+      role: "Virtual Intern — Web, Mobile Development & Marketing",
+      period: "Feb 2026 — Mar 2026",
+      location: "Indore (Remote)",
+      points: [
+        "Designed and built RadiusX, a full-stack e-commerce platform with a component-based frontend (reusable navbar, product cards, cart system).",
+        "Built responsive UI with HTML, CSS and JavaScript across homepage, product listing, product detail and cart sections.",
+        "Integrated MongoDB Atlas as a cloud NoSQL database to simulate real-world e-commerce data flow.",
+        "Followed Agile-style iterative development and used Git/GitHub with Vercel for deployment.",
+      ],
+      image: "",
+    },
+    {
+      org: "J.P. Morgan Chase & Co. (Forage)",
+      role: "Software Engineering Virtual Experience",
+      period: "Feb 2026",
+      location: "Remote",
+      points: [
+        "Completed a 5-task enterprise sprint simulation, including a Kafka producer/consumer pipeline for event-driven microservices.",
+      ],
+      image: "",
+    },
+    {
+      org: "Universal Informatics x SVVV",
+      role: "Industrial Trainee — Java & Full Stack",
+      period: "2025",
+      location: "Indore",
+      points: [
+        "Built full-stack Java modules — backend logic, SQL, REST APIs — across a 6-month program, applying SOLID principles under mentorship.",
+      ],
+      image: "",
+    },
+  ],
+
+  projects: [
+    {
+      title: "Switchit Ecommerce Platform",
+      tech: "MERN Stack",
+      description:
+        "Full e-commerce web application built and deployed solo, scratch to production — product catalog, cart/checkout flow and backend order management.",
+      link: "https://switchitecommerce.com",
+      image: "",
+    },
+    {
+      title: "Switchit Corporate Website",
+      tech: "MERN Stack",
+      description:
+        "Company website designed, built and deployed independently — frontend UI, backend API and production hosting.",
+      link: "https://switchitpvtltd.com",
+      image: "",
+    },
+    {
+      title: "Switchit CRM Refactor",
+      tech: "PHP Laravel",
+      description:
+        "End-to-end refactor of an existing CRM — redesigned database schema, cut server response time, restructured core backend modules without disrupting live operations.",
+      link: "",
+      image: "",
+    },
+    {
+      title: "Kashly — Finance App",
+      tech: "MERN Stack",
+      description: "Money-lending fintech app designed and shipped to production independently, full lifecycle solo.",
+      link: "",
+      image: "",
+    },
+    {
+      title: "ERP System Optimization — MJ Academic Hub",
+      tech: "Java, Spring Boot, SQL",
+      description:
+        "Refactored 4 backend modules for a 25% throughput gain under 500+ concurrent load. Redesigned the DB schema with composite indexing, cutting server response by 150ms/query, and integrated REST APIs across 4 microservices at 99.9% uptime SLA.",
+      link: "",
+      image: "",
+    },
+    {
+      title: "Alertaid — Disaster Alert & Resource Coordination Platform",
+      tech: "Java, Spring Boot, SQL",
+      description:
+        "Scalable backend processing 100+ concurrent disaster alerts with sub-second response. Normalized SQL schema for 1,000+ records (30% query gain) and automated alert-prioritization for a 35% efficiency gain. Research paper presented at Sanmantrana 2026 International Congress (SVVV & St. Cloud State University, USA).",
+      link: "",
+      image: "",
+    },
+    {
+      title: "On-Chain ETL & Analytics Pipeline",
+      tech: "Python, SQL, Pandas, Power BI",
+      description:
+        "ETL pipeline processing 1M+ blockchain data points at 99.9% integrity, cutting query latency by 30% via index tuning — built with a 3-developer team. Automated weekly Power BI reporting, saving ~10 hrs/week of manual analysis.",
+      link: "",
+      image: "",
+    },
+    {
+      title: "AI-Based Lane Detection System",
+      tech: "Python, OpenCV, ML",
+      description:
+        "Real-time computer vision model achieving 94% lane detection accuracy across 6 environmental conditions (rain, night, glare).",
+      link: "",
+      image: "",
+    },
+    {
+      title: "RadiusX — Smart E-Commerce Platform",
+      tech: "HTML, CSS, JavaScript, MongoDB Atlas",
+      description:
+        "Full-stack e-commerce platform built during the IBM PBEL internship with a component-based frontend architecture.",
+      link: "",
+      image: "",
+    },
+  ],
+
+  certifications: [
+    { title: "Databases for Developers: Foundations", issuer: "Oracle Dev Gym", date: "Oct 2025" },
+    { title: "AWS Cloud Practitioner", issuer: "GeeksforGeeks", date: "Jan 2026" },
+    { title: "Cloud Computing Basics", issuer: "NPTEL", date: "Jul 2024" },
+    { title: "Database Management System", issuer: "NPTEL", date: "Jan 2025" },
+    { title: "The Joy of Computing using Python", issuer: "NPTEL / Swayam", date: "Jan 2025" },
+    { title: "Developing Soft Skills and Personality", issuer: "NPTEL", date: "" },
+    { title: "Digital Application Fundamentals (STEM)", issuer: "IT-ITeS SSC NASSCOM", date: "Jan 2026" },
+    { title: "Data Analytics Assessment", issuer: "LearnTube", date: "Jul 2024" },
+    { title: "Java Programming 2.0", issuer: "Universal Informatics, Indore", date: "Mar 2024" },
+    { title: "Software Engineering Job Simulation", issuer: "J.P. Morgan Chase & Co. (Forage)", date: "Feb 2026" },
+  ],
+
+  achievements: [
+    "Runner-up — Moon Hack 2025 (500+ participants)",
+    "Runner-up — Code Strike Hackathon",
+    "Top 10% of 5,000+ participants on Code Better",
+    "Research paper presented at Sanmantrana 2026 International Congress (SVVV & St. Cloud State University, USA)",
+    "Top 3 in class, Top 10 in class, scholarship recipient — B.Tech",
+  ],
+
+  platforms: [
+    { name: "GitHub", url: "https://github.com/goldy2307", icon: "github" },
+    { name: "LinkedIn", url: "https://www.linkedin.com/in/goldy-lokhande-440ab2324", icon: "linkedin" },
+    { name: "Naukri", url: "https://www.naukri.com/mnjuser/profile", icon: "naukri" },
+    { name: "foundit", url: "https://www.foundit.in/seeker/profile", icon: "foundit" },
+  ],
+
+  contactEmail: "goldylokhande12@gmail.com",
+  contactPhone: "+91 7225818126",
+};
+
+async function seed() {
+  await mongoose.connect(process.env.MONGO_URI);
+  await Content.findOneAndUpdate({ key: "portfolio" }, data, { upsert: true, new: true });
+  console.log("Portfolio content seeded.");
+  await mongoose.disconnect();
+}
+
+seed().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});
