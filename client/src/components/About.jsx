@@ -24,9 +24,7 @@ export default function About({ about }) {
           >
             {!about?.photo && (
               <span style={{ fontFamily: "var(--font-mono)", color: "var(--text-low)", fontSize: 13, textAlign: "center", padding: 20 }}>
-                Add a personal photo
-                <br />
-                from the admin panel
+                Loading...
               </span>
             )}
           </div>

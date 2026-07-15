@@ -30,7 +30,7 @@ export default function Projects({ projects }) {
                 >
                   {!p.image && (
                     <span style={{ fontFamily: "var(--font-mono)", fontSize: 12, color: "var(--text-low)" }}>
-                      project image
+                      Loading....
                     </span>
                   )}
                 </div>

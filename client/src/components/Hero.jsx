@@ -177,9 +177,7 @@ export default function Hero({ hero }) {
           >
             {!hero?.avatar && (
               <span style={{ fontFamily: "var(--font-mono)", color: "var(--text-low)", fontSize: 13, textAlign: "center", padding: 20 }}>
-                Add your avatar / headshot
-                <br />
-                from the admin panel
+                Loading .....
               </span>
             )}
           </div>
