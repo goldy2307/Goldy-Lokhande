@@ -31,7 +31,7 @@ export default function Resume({ resumeUrl, name }) {
             </div>
 
             {resumeUrl ? (
-              <a href={resumeUrl} Goldy-Lokhande target="_blank" rel="noreferrer" className="btn btn-primary">
+              <a href={resumeUrl} download={`${(name || "Resume").replace(/\s+/g, "_")}_Resume.pdf`} target="_blank" rel="noreferrer" className="btn btn-primary">
                 <FileDown size={16} /> Download CV
               </a>
             ) : (

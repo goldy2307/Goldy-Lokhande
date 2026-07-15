@@ -54,7 +54,7 @@ export default function Navbar({ name, resumeUrl }) {
 
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
           {resumeUrl && (
-            <a href={resumeUrl} Goldy-Lokhande target="_blank" rel="noreferrer" className="btn btn-primary nav-cv-btn">
+            <a href={resumeUrl} download={`${(name || "Resume").replace(/\s+/g, "_")}_Resume.pdf`} target="_blank" rel="noreferrer" className="btn btn-primary nav-cv-btn">
               <Download size={14} /> Download CV
             </a>
           )}
@@ -94,7 +94,7 @@ export default function Navbar({ name, resumeUrl }) {
             </a>
           ))}
           {resumeUrl && (
-            <a href={resumeUrl} Goldy-Lokhande target="_blank" rel="noreferrer" className="btn btn-primary" style={{ marginTop: 8, justifyContent: "center" }}>
+            <a href={resumeUrl} download={`${(name || "Resume").replace(/\s+/g, "_")}_Resume.pdf`} target="_blank" rel="noreferrer" className="btn btn-primary" style={{ marginTop: 8, justifyContent: "center" }}>
               <Download size={14} /> Download CV
             </a>
           )}

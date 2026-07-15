@@ -127,7 +127,7 @@ export default function Hero({ hero }) {
               <Mail size={16} /> Get in touch
             </a>
             {hero?.resumeUrl ? (
-              <a href={hero.resumeUrl} Goldy-Lokhande target="_blank" rel="noreferrer" className="btn btn-ghost">
+              <a href={hero.resumeUrl} download={`${(hero?.name || "Resume").replace(/\s+/g, "_")}_Resume.pdf`} target="_blank" rel="noreferrer" className="btn btn-ghost">
                 <Download size={16} /> Download CV
               </a>
             ) : (
