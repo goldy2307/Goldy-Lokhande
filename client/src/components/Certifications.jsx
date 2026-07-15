@@ -14,7 +14,11 @@ export default function Certifications({ certifications, achievements }) {
           <div style={{ display: "flex", flexDirection: "column", gap: 12, marginTop: 24 }}>
             {certifications?.map((c, i) => (
               <Reveal key={c.title} delay={(i % 4) + 1} className="card cert-row" style={{ padding: "16px 20px", display: "flex", alignItems: "center", gap: 14 }}>
-                <BadgeCheck size={18} color="var(--amber)" style={{ flexShrink: 0 }} />
+                {c.image ? (
+                  <img src={c.image} alt="" style={{ width: 40, height: 40, borderRadius: 8, objectFit: "cover", flexShrink: 0, border: "1px solid var(--line)" }} />
+                ) : (
+                  <BadgeCheck size={18} color="var(--amber)" style={{ flexShrink: 0 }} />
+                )}
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <div style={{ fontSize: 14.5, fontWeight: 500 }}>{c.title}</div>
                   <div style={{ fontSize: 12.5, color: "var(--text-low)", marginTop: 2 }}>{c.issuer}</div>

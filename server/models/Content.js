@@ -57,6 +57,7 @@ const ContentSchema = new mongoose.Schema(
         title: String,
         issuer: String,
         date: String,
+        image: String, // badge / certificate image, URL or base64
       },
     ],
 
